@@ -40,10 +40,10 @@ public class Main {
 		Pessoa p2 = new Pessoa(1, "TreinaWeb");
 		System.out.println(p2.toString());
 		System.out.println("---------------------");
-		p2.setNome("TreinaWeb Modificado");
+		// p2.setNome("TreinaWeb Modificado");
 		System.out.println(p1.toString());
 		System.out.println(p2.toString());
-		System.out.println(p1 == p2);
+		System.out.println(p1.equals(p2));
 	}
 
 }
