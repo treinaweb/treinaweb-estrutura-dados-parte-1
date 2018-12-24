@@ -69,6 +69,10 @@ public class Main {
 		System.out.println(vetorPessoas.contem(pessoaErrada));
 		System.out.println(vetorPessoas.indice(p));
 		System.out.println(vetorPessoas.indice(pessoaErrada));
+		vetorPessoas.remover(2);
+		System.out.println(vetorPessoas.toString());
+		vetorPessoas.remover(p);
+		System.out.println(vetorPessoas.toString());
 	}
 
 }
