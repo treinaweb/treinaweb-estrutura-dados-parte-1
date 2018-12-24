@@ -2,6 +2,7 @@ package br.com.treinaweb.estruturadados.main;
 
 import java.util.Scanner;
 
+import br.com.treinaweb.estruturadados.listasligadas.ListaLigada;
 import br.com.treinaweb.estruturadados.modelos.Pessoa;
 import br.com.treinaweb.estruturadados.vetores.Vetor;
 
@@ -24,8 +25,18 @@ public class Main {
 		case 2:
 			fazerVetor();
 			break;
+		case 3:
+			fazerListaLigada();
+			break;
 		}
 		scanner.close();
+	}
+
+	private static void fazerListaLigada() {
+		ListaLigada<Pessoa> listaPessoas = new ListaLigada<Pessoa>();
+		listaPessoas.inserir(new Pessoa(1, "TreinaWeb 1"));
+		listaPessoas.inserir(new Pessoa(2, "TreinaWeb 2"));
+		System.out.println(listaPessoas.toString());
 	}
 
 	private static void fazerGerenciamentoMemoria() {
