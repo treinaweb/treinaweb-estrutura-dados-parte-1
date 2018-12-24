@@ -20,6 +20,9 @@ public class Main {
 		case 1:
 			fazerGerenciamentoMemoria();
 			break;
+		case 2:
+			fazerVetor();
+			break;
 		}
 		scanner.close();
 	}
@@ -44,6 +47,16 @@ public class Main {
 		System.out.println(p1.toString());
 		System.out.println(p2.toString());
 		System.out.println(p1.equals(p2));
+	}
+
+	private static void fazerVetor() {
+		// indice começa com 0
+		Pessoa[] vetorPessoas = new Pessoa[3];
+		vetorPessoas[0] = new Pessoa(1, "TreinaWeb no vetor");
+		System.out.println(vetorPessoas[0].getNome());
+		int[] vetorInteiros = new int[3];
+		System.out.println(vetorInteiros[0]);
+		System.out.println(vetorInteiros[3]);
 	}
 
 }
