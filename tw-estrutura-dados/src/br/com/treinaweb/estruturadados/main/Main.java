@@ -47,6 +47,13 @@ public class Main {
 		System.out.println(listaPessoas.contem(pessoaErrada));
 		System.out.println(listaPessoas.indice(p));
 		System.out.println(listaPessoas.indice(pessoaErrada));
+		listaPessoas.remover(p);
+		System.out.println(listaPessoas.toString());
+		listaPessoas.remover(0);
+		System.out.println(listaPessoas.toString());
+		for (int i = 0; i < listaPessoas.tamanho(); i++) {
+			System.out.println(listaPessoas.recuperar(i).toString());
+		}
 	}
 
 	private static void fazerGerenciamentoMemoria() {
