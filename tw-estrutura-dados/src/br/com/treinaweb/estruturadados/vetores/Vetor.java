@@ -1,5 +1,7 @@
 package br.com.treinaweb.estruturadados.vetores;
 
+import java.util.Arrays;
+
 public class Vetor<T> {
 
 	private Object[] elementos;
@@ -16,6 +18,9 @@ public class Vetor<T> {
 	}
 
 	public void inserir(T elemento) {
+		if (this.posicao >= this.elementos.length) {
+			this.elementos = Arrays.copyOf(this.elementos, this.elementos.length + 1);
+		}
 		this.elementos[this.posicao] = elemento;
 		this.posicao++;
 	}
@@ -23,6 +28,20 @@ public class Vetor<T> {
 	public void inserirEm(int posicao, T elemento) {
 		if (posicao < this.elementos.length) {
 			throw new IllegalArgumentException(String.format("A posição é inválida [%d]", posicao));
+		}
+		if (this.elementos[posicao] != null) {
+			// 1, 2, 3, 4
+			// 1, 5, 2, 3, 4
+			Object[] arrayFinal = Arrays.copyOfRange(this.elementos, posicao, this.elementos.length);
+			Object[] arrayInicio = new Object[posicao + 1];
+			System.arraycopy(this.elementos, 0, arrayInicio, 0, posicao);
+			arrayInicio[arrayInicio.length - 1] = elemento;
+			// arrayFinal = 2,3,4
+			// arrayInicio = 1,5
+			int novoTamanho = arrayFinal.length + arrayInicio.length;
+			this.elementos = new Object[novoTamanho];
+			System.arraycopy(arrayInicio, 0, this.elementos, 0, arrayInicio.length);
+			System.arraycopy(arrayFinal, 0, this.elementos, arrayInicio.length, arrayFinal.length);
 		}
 		this.elementos[posicao] = elemento;
 	}
