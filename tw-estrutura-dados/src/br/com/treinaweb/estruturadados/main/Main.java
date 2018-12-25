@@ -2,6 +2,7 @@ package br.com.treinaweb.estruturadados.main;
 
 import java.util.Scanner;
 
+import br.com.treinaweb.estruturadados.listasligadas.ListaDuplamenteLigada;
 import br.com.treinaweb.estruturadados.listasligadas.ListaLigada;
 import br.com.treinaweb.estruturadados.modelos.Pessoa;
 import br.com.treinaweb.estruturadados.vetores.Vetor;
@@ -28,8 +29,36 @@ public class Main {
 		case 3:
 			fazerListaLigada();
 			break;
+		case 4:
+			fazerListaDuplamenteLigada();
+			break;
 		}
 		scanner.close();
+	}
+
+	private static void fazerListaDuplamenteLigada() {
+		ListaDuplamenteLigada<Pessoa> listaPessoas = new ListaDuplamenteLigada<Pessoa>();
+		listaPessoas.inserir(new Pessoa(1, "TreinaWeb 1"));
+		listaPessoas.inserir(new Pessoa(2, "TreinaWeb 2"));
+		listaPessoas.inserir(new Pessoa(3, "TreinaWeb 3"));
+		listaPessoas.inserirEm(1, new Pessoa(4, "TreinaWeb 4"));
+		listaPessoas.inserirPrimeiro(new Pessoa(5, "TreinaWeb 5"));
+		listaPessoas.inserirUltimo(new Pessoa(6, "TreinaWeb 6"));
+		System.out.println(listaPessoas.toString());
+		Pessoa p = listaPessoas.recuperar(1);
+		Pessoa pessoaErrada = new Pessoa(100, "TreinaWeb 100");
+		System.out.println(listaPessoas.contem(p));
+		System.out.println(listaPessoas.contem(pessoaErrada));
+		System.out.println(listaPessoas.indice(p));
+		System.out.println(listaPessoas.indice(pessoaErrada));
+		listaPessoas.remover(p);
+		System.out.println(listaPessoas.toString());
+		listaPessoas.remover(0);
+		System.out.println(listaPessoas.toString());
+		System.out.println("Lista de pessoas");
+		for (int i = 0; i < listaPessoas.tamanho(); i++) {
+			System.out.println(listaPessoas.recuperar(i).toString());
+		}
 	}
 
 	private static void fazerListaLigada() {
