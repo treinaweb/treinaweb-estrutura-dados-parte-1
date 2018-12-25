@@ -2,6 +2,7 @@ package br.com.treinaweb.estruturadados.main;
 
 import java.util.Scanner;
 
+import br.com.treinaweb.estruturadados.filas.Fila;
 import br.com.treinaweb.estruturadados.listasligadas.ListaDuplamenteLigada;
 import br.com.treinaweb.estruturadados.listasligadas.ListaLigada;
 import br.com.treinaweb.estruturadados.modelos.Pessoa;
@@ -36,8 +37,22 @@ public class Main {
 		case 5:
 			fazerPilha();
 			break;
+		case 6:
+			fazerFila();
+			break;
 		}
 		scanner.close();
+	}
+
+	private static void fazerFila() {
+		Fila<Pessoa> filaPessoas = new Fila<Pessoa>();
+		System.out.println(filaPessoas.estaVazia());
+		filaPessoas.enfileirar(new Pessoa(1, "TreinaWeb 1"));
+		filaPessoas.enfileirar(new Pessoa(2, "TreinaWeb 2"));
+		System.out.println(filaPessoas.toString());
+		Pessoa p = filaPessoas.desenfileirar();
+		System.out.println(p.toString());
+		System.out.println(filaPessoas.toString());
 	}
 
 	private static void fazerPilha() {
