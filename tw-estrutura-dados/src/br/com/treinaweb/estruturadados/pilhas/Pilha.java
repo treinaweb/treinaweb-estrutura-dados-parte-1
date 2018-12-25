@@ -18,4 +18,13 @@ public class Pilha<T> {
 		this.elementos.inserir(elemento);
 	}
 
+	public T desempilhar() {
+		if (estaVazia()) {
+			return null;
+		}
+		T resultado = this.elementos.recuperar(this.elementos.tamanho() - 1);
+		this.elementos.remover(this.elementos.tamanho() - 1);
+		return resultado;
+	}
+
 }
